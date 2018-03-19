@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SmokeSuite">
-  <test thread-count="5" name="SmokeTest">
+  <test thread-count="6" name="SmokeTest">
+  <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="smokeTest.SmokeTest"/>
+      <class name="smokeTest.SmokeTest">
+      	<methods>
+      		<include name="elementsDisplay"></include>
+      		<include name="register"></include>
+      		<include name="login"></include>
+      		<include name="logout"></include>
+      		<include name="search"></include>
+      		<include name="cartOptions"></include>
+      	</methods>
+      </class>
     </classes>
   </test> <!-- SmokeTest -->
 </suite> <!-- SmokeSuite -->
