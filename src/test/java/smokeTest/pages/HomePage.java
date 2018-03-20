@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends DefaultPage{
@@ -36,6 +37,12 @@ public class HomePage extends DefaultPage{
 	@FindBy(xpath = "//div[contains(@class, 'shoeData')]")
 	List<WebElement> featuredProductItemList;
 	
+	@FindBy(xpath = "//p[contains(@class, 'navbar-brand-static')]")
+	WebElement currentUser;
+	
+	@FindBy(xpath = "//a[@href='/logout']")
+	WebElement logoutLink;
+	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		
@@ -43,10 +50,14 @@ public class HomePage extends DefaultPage{
 	}
 
 	public WebElement getLoginLink() {
+		wait.until(ExpectedConditions.visibilityOf(loginLink));
+		
 		return loginLink;
 	}
 
 	public WebElement getRegisterLink() {
+		wait.until(ExpectedConditions.visibilityOf(registerLink));
+		
 		return registerLink;
 	}
 	
@@ -80,5 +91,15 @@ public class HomePage extends DefaultPage{
 
 	public WebElement getSportsShoesLink() {
 		return sportsShoesLink;
+	}
+
+	public WebElement getCurrentUser() {
+		wait.until(ExpectedConditions.visibilityOf(currentUser));
+		
+		return currentUser;
+	}
+
+	public WebElement getLogoutLink() {
+		return logoutLink;
 	}
 }

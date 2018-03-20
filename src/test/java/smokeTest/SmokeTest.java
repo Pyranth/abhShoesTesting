@@ -4,6 +4,9 @@ import org.testng.annotations.Test;
 
 import smokeTest.pages.CategoryPage;
 import smokeTest.pages.HomePage;
+import smokeTest.pages.LoginPage;
+import smokeTest.pages.RegisterPage;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterTest;
@@ -24,6 +27,8 @@ public class SmokeTest {
 	
 	private HomePage homePage;
 	private CategoryPage categoryPage;
+	private RegisterPage registerPage;
+	private LoginPage loginPage;
 	
 	@Test
 	public void elementsDisplay() {
@@ -64,14 +69,49 @@ public class SmokeTest {
 	
 	@Test
 	public void register() {
+		homePage = new HomePage(driver);
+		
+		homePage.getRegisterLink().click();
+		
+		registerPage = new RegisterPage(driver);
+		
+		registerPage.insertEmail("email@email.com");
+		registerPage.insertPassword("testtest");
+		registerPage.insertRepeatedPassword("testtest");
+		registerPage.submitRegister();
+		
+		assertTrue(registerPage.getErrorMessage().isDisplayed());
 	}
 	
 	@Test
 	public void login() {
+		homePage = new HomePage(driver);
+		
+		homePage.getLoginLink().click();
+		
+		loginPage = new LoginPage(driver);
+		
+		loginPage.insertEmail("email@email.com");
+		loginPage.insertPassword("testtest");
+		loginPage.submitLogin();
+		
+		assertTrue(homePage.getCurrentUser().getText().contains("Welcome email@email.com"));
 	}
 	
 	@Test
 	public void logout() {
+		homePage = new HomePage(driver);
+		
+		homePage.getLogoutLink().click();
+		
+		assertTrue(homePage.getLoginLink().isDisplayed());
+		assertTrue(homePage.getLoginLink().isDisplayed());
+		
+		loginPage = new LoginPage(driver);
+		
+		assertTrue(loginPage.getEmailField().isDisplayed());
+		assertTrue(loginPage.getPasswordField().isDisplayed());
+		assertTrue(loginPage.getButtonSubmit().isDisplayed());
 	}
 	
 	@Test
