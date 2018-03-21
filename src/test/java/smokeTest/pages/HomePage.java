@@ -50,46 +50,54 @@ public class HomePage extends DefaultPage{
 	}
 
 	public WebElement getLoginLink() {
-		wait.until(ExpectedConditions.visibilityOf(loginLink));
+		wait.until(ExpectedConditions.elementToBeClickable(loginLink));
 		
 		return loginLink;
 	}
 
 	public WebElement getRegisterLink() {
-		wait.until(ExpectedConditions.visibilityOf(registerLink));
+		wait.until(ExpectedConditions.elementToBeClickable(registerLink));
 		
 		return registerLink;
 	}
 	
-	public boolean isFeaturedProductsListEmpty()
-	{
+	public boolean isFeaturedProductsListEmpty() {
 		Select select = new Select(featuredProductsList);
 		
 		return select.getOptions().isEmpty();
 	}
 	
-	public boolean isFeaturedProductsItemListEmpty()
-	{
+	public boolean isFeaturedProductsItemListEmpty() {
 		return featuredProductItemList.isEmpty();
 	}
 
 	public WebElement getHomePageLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(homePageLink));
+		
 		return homePageLink;
 	}
 
 	public WebElement getWomenShoesLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(womenShoesLink));
+		
 		return womenShoesLink;
 	}
 
 	public WebElement getMenShoesLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(menShoesLink));
+		
 		return menShoesLink;
 	}
 
 	public WebElement getKidsShoesLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(kidsShoesLink));
+		
 		return kidsShoesLink;
 	}
 
 	public WebElement getSportsShoesLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(sportsShoesLink));
+		
 		return sportsShoesLink;
 	}
 
@@ -100,6 +108,8 @@ public class HomePage extends DefaultPage{
 	}
 
 	public WebElement getLogoutLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(logoutLink));
+		
 		return logoutLink;
 	}
 }

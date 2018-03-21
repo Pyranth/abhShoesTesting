@@ -30,27 +30,51 @@ public class RegisterPage extends DefaultPage {
 	
 	public void insertEmail(String email)
 	{
-		emailField.sendKeys(email);
+		getEmailField().sendKeys(email);
 	}
 	
 	public void insertPassword(String pass)
 	{
-		passwordField.sendKeys(pass);
+		getPasswordField().sendKeys(pass);
 	}
 	
 	public void insertRepeatedPassword(String pass)
 	{
-		repeatedPasswordField.sendKeys(pass);
+		getRepeatedPasswordField().sendKeys(pass);
 	}
 
 	public void submitRegister()
 	{
-		buttonSubmit.click();
+		getButtonSubmit().click();
 	}
 
 	public WebElement getErrorMessage() {
 		wait.until(ExpectedConditions.visibilityOf(errorMessage));
 		
 		return errorMessage;
+	}
+
+	public WebElement getEmailField() {
+		wait.until(ExpectedConditions.visibilityOf(emailField));
+		
+		return emailField;
+	}
+
+	public WebElement getPasswordField() {
+		wait.until(ExpectedConditions.visibilityOf(passwordField));
+		
+		return passwordField;
+	}
+
+	public WebElement getRepeatedPasswordField() {
+		wait.until(ExpectedConditions.visibilityOf(repeatedPasswordField));
+		
+		return repeatedPasswordField;
+	}
+
+	public WebElement getButtonSubmit() {
+		wait.until(ExpectedConditions.elementToBeClickable(buttonSubmit));
+		
+		return buttonSubmit;
 	}
 }

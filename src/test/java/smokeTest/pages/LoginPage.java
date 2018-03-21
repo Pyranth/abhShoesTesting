@@ -22,19 +22,16 @@ public class LoginPage extends DefaultPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void insertEmail(String email)
-	{
-		emailField.sendKeys(email);
+	public void insertEmail(String email) {	
+		getEmailField().sendKeys(email);
 	}
 	
-	public void insertPassword(String pass)
-	{
-		passwordField.sendKeys(pass);
+	public void insertPassword(String pass) {
+		getPasswordField().sendKeys(pass);
 	}
 	
-	public void submitLogin()
-	{
-		buttonSubmit.click();
+	public void submitLogin() {
+		getButtonSubmit().click();
 	}
 
 	public WebElement getEmailField() {
@@ -50,7 +47,7 @@ public class LoginPage extends DefaultPage {
 	}
 
 	public WebElement getButtonSubmit() {
-		wait.until(ExpectedConditions.visibilityOf(buttonSubmit));
+		wait.until(ExpectedConditions.elementToBeClickable(buttonSubmit));
 		
 		return buttonSubmit;
 	}

@@ -49,14 +49,66 @@ public class SmokeTest {
 		homePage.getWomenShoesLink().click();
 		testCategory();
 		
+		homePage = new HomePage(driver);
+		
 		homePage.getMenShoesLink().click();
 		testCategory();
 		
-		homePage.getKidsShoesLink().click();
+		homePage = new HomePage(driver);
+		
+		homePage.getMenShoesLink().click();
 		testCategory();
+		
+		homePage = new HomePage(driver);
 		
 		homePage.getSportsShoesLink().click();
 		testCategory();
+		
+		/*
+		for (int i = 0; i < 2; i++) {
+			try {
+				homePage.getWomenShoesLink().click();
+				testCategory();
+				break;
+			}
+			catch(Exception e) {
+				
+			}
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			try {
+				homePage.getMenShoesLink().click();
+				testCategory();
+				break;
+			}
+			catch(Exception e) {
+				
+			}
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			try {
+				homePage.getMenShoesLink().click();
+				testCategory();
+				break;
+			}
+			catch(Exception e) {
+				
+			}
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			try {
+				homePage.getSportsShoesLink().click();
+				testCategory();
+				break;
+			}
+			catch(Exception e) {
+				
+			}
+		}
+		*/
 	}
 	
 	private void testCategory()
@@ -91,11 +143,11 @@ public class SmokeTest {
 		
 		loginPage = new LoginPage(driver);
 		
-		loginPage.insertEmail("email@email.com");
-		loginPage.insertPassword("testtest");
+		loginPage.insertEmail("adminabh@abh.com");
+		loginPage.insertPassword("adminpass");
 		loginPage.submitLogin();
 		
-		assertTrue(homePage.getCurrentUser().getText().contains("Welcome email@email.com"));
+		assertTrue(homePage.getCurrentUser().getText().contains("Welcome adminabh@abh.com"));
 	}
 	
 	@Test

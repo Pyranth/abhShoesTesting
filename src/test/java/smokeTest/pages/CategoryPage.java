@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CategoryPage extends DefaultPage {
 	@FindBy(xpath = "//div[contains(@class, 'shoeData')]")
@@ -25,6 +26,8 @@ public class CategoryPage extends DefaultPage {
 	}
 
 	public WebElement getFilterForm() {
+		wait.until(ExpectedConditions.visibilityOf(filterForm));
+		
 		return filterForm;
 	}
 }
