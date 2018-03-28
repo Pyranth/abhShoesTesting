@@ -2,6 +2,7 @@ package smokeTest;
 
 import org.testng.annotations.Test;
 
+import smokeTest.pages.CartPage;
 import smokeTest.pages.CategoryPage;
 import smokeTest.pages.HomePage;
 import smokeTest.pages.LoginPage;
@@ -29,6 +30,7 @@ public class SmokeTest {
 	private CategoryPage categoryPage;
 	private RegisterPage registerPage;
 	private LoginPage loginPage;
+	private CartPage cartPage;
 	
 	@Test
 	public void elementsDisplay() {
@@ -168,10 +170,45 @@ public class SmokeTest {
 	
 	@Test
 	public void search() {
+		homePage = new HomePage(driver);
+		
+		homePage.getWomenShoesLink().click();
+		
+		categoryPage = new CategoryPage(driver);
+		
+		categoryPage.getFilterForm();
+		
+		categoryPage.setBrand("Nike");
+		categoryPage.setSize("6");
+		categoryPage.setColor("Black");
+		categoryPage.setStyle("Summer");
+		categoryPage.setPriceRange("120KM - ...");
+		categoryPage.getSearchButton().click();
+		
+		assertFalse(categoryPage.getShoeItems().isEmpty());
 	}
 	
 	@Test
 	public void cartOptions() {
+		homePage = new HomePage(driver);
+		
+		homePage.getCartLink().click();
+		
+		cartPage = new CartPage(driver);
+		
+		assertTrue(cartPage.getReceiptData().isDisplayed());
+		assertFalse(cartPage.getCartItems().isEmpty());
+		assertTrue(cartPage.getContinueButton().isDisplayed());
+		
+		cartPage.getContinueButton().click();
+		
+		assertTrue(cartPage.getShipmentForm().isDisplayed());
+		assertTrue(cartPage.getShipmentContinueButton().isDisplayed());
+		
+		cartPage.getShipmentContinueButton().click();
+		
+		assertTrue(cartPage.getAddressInfo().size() == 2);
+		assertTrue(cartPage.getPayButton().isDisplayed());
 	}
 	
 	@BeforeTest(alwaysRun = true)

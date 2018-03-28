@@ -43,6 +43,9 @@ public class HomePage extends DefaultPage{
 	@FindBy(xpath = "//a[@href='/logout']")
 	WebElement logoutLink;
 	
+	@FindBy(xpath = "//a[@href='/cart']")
+	WebElement cartLink;
+	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		
@@ -111,5 +114,9 @@ public class HomePage extends DefaultPage{
 		wait.until(ExpectedConditions.elementToBeClickable(logoutLink));
 		
 		return logoutLink;
+	}
+
+	public WebElement getCartLink() {
+		return cartLink;
 	}
 }

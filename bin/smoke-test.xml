@@ -9,9 +9,9 @@
       		<include name="elementsDisplay"></include>
       		<include name="register"></include>
       		<include name="login"></include>
+      		<include name="logout"></include>
       		<include name="search"></include>
       		<include name="cartOptions"></include>
-      		<include name="logout"></include>
       	</methods>
       </class>
     </classes>
