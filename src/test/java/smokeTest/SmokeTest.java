@@ -51,66 +51,14 @@ public class SmokeTest {
 		homePage.getWomenShoesLink().click();
 		testCategory();
 		
-		homePage = new HomePage(driver);
-		
 		homePage.getMenShoesLink().click();
 		testCategory();
 		
-		homePage = new HomePage(driver);
-		
-		homePage.getMenShoesLink().click();
+		homePage.getKidsShoesLink().click();
 		testCategory();
-		
-		homePage = new HomePage(driver);
 		
 		homePage.getSportsShoesLink().click();
 		testCategory();
-		
-		/*
-		for (int i = 0; i < 2; i++) {
-			try {
-				homePage.getWomenShoesLink().click();
-				testCategory();
-				break;
-			}
-			catch(Exception e) {
-				
-			}
-		}
-		
-		for (int i = 0; i < 2; i++) {
-			try {
-				homePage.getMenShoesLink().click();
-				testCategory();
-				break;
-			}
-			catch(Exception e) {
-				
-			}
-		}
-		
-		for (int i = 0; i < 2; i++) {
-			try {
-				homePage.getMenShoesLink().click();
-				testCategory();
-				break;
-			}
-			catch(Exception e) {
-				
-			}
-		}
-		
-		for (int i = 0; i < 2; i++) {
-			try {
-				homePage.getSportsShoesLink().click();
-				testCategory();
-				break;
-			}
-			catch(Exception e) {
-				
-			}
-		}
-		*/
 	}
 	
 	private void testCategory()

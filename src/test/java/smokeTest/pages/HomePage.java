@@ -2,6 +2,7 @@ package smokeTest.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,23 +14,23 @@ public class HomePage extends DefaultPage{
 	@FindBy(xpath = "//a[contains(@class, 'navbar-brand')]")
 	WebElement homePageLink;
 	
-	@FindBy(xpath = "//a[@id='navCategory1']")
 	WebElement womenShoesLink;
+	By womenShoesLinkPath = By.xpath("//a[@id='navCategory1']");
 	
-	@FindBy(xpath = "//a[@id='navCategory2']")
 	WebElement menShoesLink;
+	By menShoesLinkPath = By.xpath("//a[@id='navCategory2']");
 	
-	@FindBy(xpath = "//a[@id='navCategory3']")
 	WebElement kidsShoesLink;
+	By kidsShoesLinkPath = By.xpath("//a[@id='navCategory3']");
 	
-	@FindBy(xpath = "//a[@id='navCategory4']")
 	WebElement sportsShoesLink;
+	By sportsShoesLinkPath = By.xpath("//a[@id='navCategory4']");
 	
-	@FindBy(xpath = "//a[@href='/login']")
 	WebElement loginLink;
+	By loginLinkPath = By.xpath("//a[@href='/login']");
 	
-	@FindBy(xpath = "//a[@href='/signup']")
 	WebElement registerLink;
+	By registerLinkPath = By.xpath("//a[@href='/signup']");
 	
 	@FindBy(xpath = "//select[@id='indexBrandSelect']")
 	WebElement featuredProductsList;
@@ -53,15 +54,11 @@ public class HomePage extends DefaultPage{
 	}
 
 	public WebElement getLoginLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(loginLink));
-		
-		return loginLink;
+		return driver.findElement(loginLinkPath);
 	}
 
 	public WebElement getRegisterLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(registerLink));
-		
-		return registerLink;
+		return driver.findElement(registerLinkPath);
 	}
 	
 	public boolean isFeaturedProductsListEmpty() {
@@ -81,27 +78,19 @@ public class HomePage extends DefaultPage{
 	}
 
 	public WebElement getWomenShoesLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(womenShoesLink));
-		
-		return womenShoesLink;
+		return driver.findElement(womenShoesLinkPath);
 	}
 
 	public WebElement getMenShoesLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(menShoesLink));
-		
-		return menShoesLink;
+		return driver.findElement(menShoesLinkPath);
 	}
 
 	public WebElement getKidsShoesLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(kidsShoesLink));
-		
-		return kidsShoesLink;
+		return driver.findElement(kidsShoesLinkPath);
 	}
 
 	public WebElement getSportsShoesLink() {
-		wait.until(ExpectedConditions.elementToBeClickable(sportsShoesLink));
-		
-		return sportsShoesLink;
+		return driver.findElement(sportsShoesLinkPath);
 	}
 
 	public WebElement getCurrentUser() {
